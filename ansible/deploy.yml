@@ -1,0 +1,43 @@
+---
+- name: Déployer l'application Angular avec Nginx
+  hosts: aws
+  become: true
+
+  tasks:
+    - name: Installer Nginx
+      ansible.builtin.dnf:
+        name: nginx
+        state: present
+    - name: Créer le répertoire de déploiement Angular
+      ansible.builtin.file:
+        path: /var/www/html/olympic-games-starter
+        state: directory
+        owner: root
+        group: root
+        mode: '0755'
+    - name: Déployer les fichiers Angular
+      ansible.builtin.copy:
+        src: app/olympic-games-starter/
+        dest: /var/www/html/olympic-games-starter/
+        owner: root
+        group: root
+        mode: preserve
+    - name: Déployer la configuration Nginx
+      ansible.builtin.copy:
+        src: nginx/app.conf
+        dest: /etc/nginx/conf.d/app.conf
+        owner: root
+        group: root
+        mode: '0644'
+      notify: Redémarrer Nginx
+    - name: Activer et démarrer Nginx
+      ansible.builtin.service:
+        name: nginx
+        enabled: true
+        state: started
+
+  handlers:
+    - name: Redémarrer Nginx
+      ansible.builtin.service:
+        name: nginx
+        state: restarted
