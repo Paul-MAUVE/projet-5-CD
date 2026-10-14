@@ -1,0 +1,22 @@
+# Terraform - dépendances locales
+.terraform/
+
+# Terraform - fichiers d'état
+*.tfstate
+*.tfstate.*
+
+# Terraform - plans
+*.tfplan
+tfplan
+
+# Terraform - fichiers de variables sensibles
+*.tfvars
+*.tfvars.json
+
+# Terraform - fichiers de configuration locaux
+.terraformrc
+terraform.rc
+
+# Terraform - journaux
+crash.log
+crash.*.log
