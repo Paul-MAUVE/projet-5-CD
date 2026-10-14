@@ -1,0 +1,10 @@
+---
+- name: Configuration initiale du serveur EC2
+  hosts: aws
+  become: true
+
+  tasks:
+    - name: Installer Git
+      ansible.builtin.dnf:
+        name: git
+        state: present

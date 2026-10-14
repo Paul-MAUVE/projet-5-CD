@@ -1,0 +1,2 @@
+[aws]
+oc-p5-ec2 ansible_host=52.47.208.129 ansible_user=ec2-user ansible_ssh_private_key_file=~/.ssh/oc-p5-ec2 ansible_python_interpreter=/usr/bin/python3.9
