@@ -1,0 +1,28 @@
+# Terraform - fichiers locaux
+**/.terraform/
+**/*.tfstate
+**/*.tfstate.*
+**/*.tfvars
+**/*.tfvars.json
+**/crash.log
+**/crash.*.log
+
+# Variables et secrets
+.env
+.env.*
+!.env.example
+
+# Clés privées
+*.pem
+*.key
+
+# OpenSearch - fichiers générés pour l'importation
+elk/ingestion/nginx-bulk.ndjson
+elk/ingestion/batches/
+**/__pycache__/
+
+# Logs Nginx originaux (données potentiellement personnelles)
+elk/samples/nginx-access.log
+
+# Logs Nginx : données non publiées
+elk/samples/*.log

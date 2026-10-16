@@ -1,0 +1,35 @@
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0
+  },
+  "mappings": {
+    "properties": {
+      "@timestamp": { "type": "date" },
+      "client_ip": { "type": "ip" },
+      "method": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "url": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "http_version": { "type": "keyword" },
+      "status": { "type": "integer" },
+      "bytes": { "type": "long" },
+      "referer": { "type": "keyword", "ignore_above": 2048 },
+      "user_agent": { "type": "text" }
+    }
+  }
+}
