@@ -1,0 +1,20 @@
+{
+  "agent": {
+    "region": "eu-west-3",
+    "run_as_user": "cwagent"
+  },
+  "logs": {
+    "logs_collected": {
+      "files": {
+        "collect_list": [
+          {
+            "file_path": "/var/log/haproxy.log",
+            "log_group_name": "/oc-p5/haproxy",
+            "log_stream_name": "{instance_id}",
+            "retention_in_days": 7
+          }
+        ]
+      }
+    }
+  }
+}
